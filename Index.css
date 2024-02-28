@@ -47,7 +47,7 @@ input[type="file"] {
 
 button[type="submit"] {
     display: block;
-    width: 60%;
+    width: 100%;
     padding: 10px;
     background-color: #8B0000; /* Cambia el color del botón a vino */
     color: #fff;
