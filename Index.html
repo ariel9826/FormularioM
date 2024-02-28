@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="Index.css">
+</head>
+<body>
+    
+</body>
+
+<body>
+    
+    <form id="formulario" action="#" method="POST" style="margin-top: 40px;">
+        <fieldset>
+            <legend>Registro de alta</legend>
+            <div>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" maxlength="30" required>
+            </div>
+            <div>
+                <label for="distritoElectoral">Distrito Electoral Federal:</label>
+                <input type="text" id="distritoElectoral" name="distritoElectoral" maxlength="50" required>
+            </div>
+            <div>
+                <label for="nombres">Nombre(s):</label>
+                <input type="text" id="nombres" name="nombres" maxlength="50" required>
+            </div>
+            <div>
+                <label for="apellidoPaterno">Apellido Paterno:</label>
+                <input type="text" id="apellidoPaterno" name="apellidoPaterno" maxlength="50" required>
+            </div>
+            <div>
+                <label for="apellidoMaterno">Apellido Materno:</label>
+                <input type="text" id="apellidoMaterno" name="apellidoMaterno" maxlength="50" required>
+            </div>
+            <div>
+                <label for="calle">Calle:</label>
+                <input type="text" id="calle" name="calle" maxlength="50" required>
+            </div>
+            <div>
+                <label for="noExterior">N.º Exterior:</label>
+                <input type="text" id="noExterior" name="noExterior" maxlength="50" required>
+            </div>
+            <div>
+                <label for="noInterior">N.º Interior:</label>
+                <input type="text" id="noInterior" name="noInterior" maxlength="50" required>
+            </div>
+            <div>
+                <label for="colonia">Colonia:</label>
+                <input type="text" id="colonia" name="colonia" maxlength="50" required>
+            </div>
+            <div>
+                <label for="delegacionMunicipio">Delegación/Municipio:</label>
+                <input type="text" id="delegacionMunicipio" name="delegacionMunicipio" maxlength="50" required>
+            </div>
+            <div>
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" id="codigoPostal" name="codigoPostal" maxlength="10" required>
+            </div>
+            <div>
+                <label for="telefonoFijo">Teléfono Fijo:</label>
+                <input type="text" id="telefonoFijo" name="telefonoFijo" maxlength="15" required>
+            </div>
+            <div>
+                <label for="telefonoMovil">Teléfono Móvil:</label>
+                <input type="text" id="telefonoMovil" name="telefonoMovil" maxlength="10" required>
+            </div>
+            <div>
+                <label for="correoElectronico">Correo Electrónico:</label>
+                <input type="email" id="correoElectronico" name="correoElectronico" maxlength="100" required>
+            </div>
+            <div>
+                <label for="claveElector">Clave Elector:</label>
+                <input type="text" id="claveElector" name="claveElector" maxlength="18" required>
+            </div>
+        </fieldset>
+
+            <fieldset>
+            <legend>Zona de atención</legend>
+            <div>
+                <label for="municipio">Municipio:</label>
+                <input type="text" id="municipio" name="municipio" maxlength="60" required>
+            </div>
+            <div>
+                <label for="seccion">Sección:</label>
+                <input type="text" id="seccion" name="seccion" maxlength="5" required>
+            </div>
+            <div>
+                <label for="distritoElectoral2">Distrito Electoral Federal:</label>
+                <input type="text" id="distritoElectoral2" name="distritoElectoral2" maxlength="50" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Identificación INE</legend>
+            <div>
+                <label for="imagenFrente">Insertar imagen frente:</label>
+                <input type="file" id="imagenFrente" name="imagenFrente" accept="image/*" required>
+            </div>
+            <div>
+                <label for="imagenAtras">Insertar imagen atrás:</label>
+                <input type="file" id="imagenAtras" name="imagenAtras" accept="image/*" required>
+            </div>
+        </fieldset>
+        <button type="submit">Registrar</button>
+        <button type="submit"></button>
+    </form>
+
+
+
+
+    <script src="Index.js"> </script>
+</body>
+
+</html>
