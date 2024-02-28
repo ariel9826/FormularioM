@@ -93,6 +93,11 @@
                 <label for="distritoElectoral2">Distrito Electoral Federal:</label>
                 <input type="text" id="distritoElectoral2" name="distritoElectoral2" maxlength="50" required>
             </div>
+                <!-- Agregado de la firma digital -->
+    <canvas id="firmaCanvas" width="400" height="200" style="border: 1px solid #ddd;"></canvas>
+    <button onclick="limpiarFirma()">Limpiar Firma</button>
+    <button onclick="guardarFirma()">Guardar Firma</button>
+    
         </fieldset>
 
         <fieldset>
@@ -109,9 +114,6 @@
         <button type="submit">Registrar</button>
         <button type="submit"></button>
     </form>
-
-
-
 
     <script src="Index.js"> </script>
 </body>
