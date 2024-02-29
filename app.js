@@ -70,7 +70,7 @@ async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, num
     // Se añade la imagen de fondo al PDF.
     pdf.addImage(image, 'PNG', 0, 0, 565, 792);
     // Se añade la firma al PDF.
-    pdf.addImage(signatureImage, 'PNG', 200, 605, 300, 60);
+    pdf.addImage(signatureImage, 'PNG', 140, 480, 300, 60);
 
     // Se añaden los datos del formulario al PDF.
     pdf.setFontSize(10);
@@ -84,12 +84,12 @@ async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, num
     pdf.text(delegacionMunicipio, 255, 255);
     pdf.text(codigoPostal, 465, 255);
     pdf.text(telefonoFijo, 68, 285);
-    pdf.text(telefonoMovil, 58, 300);
-    pdf.text(correoElectronico, 58, 320);
-    pdf.text(claveElector, 58, 340);
-    pdf.text(municipio, 58, 360);
-    pdf.text(distritoElectoral2, 58, 380);
-    pdf.text(seccion, 58, 400);
+    pdf.text(telefonoMovil, 345, 285);
+    pdf.text(correoElectronico, 22, 320);
+    pdf.text(claveElector, 310, 318);
+    pdf.text(municipio, 65, 400);
+    pdf.text(distritoElectoral2, 420, 400);
+    pdf.text(seccion, 64, 425);
     
 
     pdf.setFillColor(0,0,0);
