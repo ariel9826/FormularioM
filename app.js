@@ -52,13 +52,13 @@ window.addEventListener('load', async () => {
         let seccion = document.getElementById('seccion').value;
 
         // Se llama a la función para generar el PDF con los datos obtenidos del formulario.
-        generatePDF(curso, nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion);
+        generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion);
     })
 
 });
 
 // Esta función genera un PDF con los datos del formulario y lo guarda.
-async function generatePDF(curso, nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion) {
+async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion) {
     // Se carga la imagen de fondo del PDF.
     const image = await loadImage("formulario.jpg");
     // Se obtiene la firma capturada como una imagen.
@@ -74,7 +74,7 @@ async function generatePDF(curso, nombres, apellidoPaterno, apellidoMaterno, cal
 
     // Se añaden los datos del formulario al PDF.
     pdf.setFontSize(12);
-    pdf.text(curso, 260, 125);
+    pdf.text(nombres, 260, 125);
 
     const date = new Date();
     pdf.text(date.getUTCDate().toString(), 235, 150);
