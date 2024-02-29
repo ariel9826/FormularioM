@@ -73,9 +73,10 @@ async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, num
     pdf.addImage(signatureImage, 'PNG', 200, 605, 300, 60);
 
     // Se añaden los datos del formulario al PDF.
-    pdf.text(nombres, 45, 100);
-    pdf.text(apellidoPaterno, 58, 120);
-    pdf.text(apellidoMaterno, 58, 140);
+    pdf.setFontSize(10);
+    pdf.text(nombres, 22, 190);
+    pdf.text(apellidoPaterno, 225, 190);
+    pdf.text(apellidoMaterno, 390, 190);
     pdf.text(calle, 58, 160);
     pdf.text(numeroExterior, 58, 180);
     pdf.text(numeroInterior, 58, 200);
