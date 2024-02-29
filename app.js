@@ -73,31 +73,23 @@ async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, num
     pdf.addImage(signatureImage, 'PNG', 200, 605, 300, 60);
 
     // Se añaden los datos del formulario al PDF.
-    pdf.setFontSize(12);
-    pdf.text(nombres, 260, 125);
-
-    const date = new Date();
-    pdf.text(date.getUTCDate().toString(), 235, 150);
-    pdf.text((date.getUTCMonth() + 1).toString(), 275, 150);
-    pdf.text(date.getUTCFullYear().toString(), 320, 150);
-
-    pdf.setFontSize(10);
-    pdf.text(nombres, 170, 213);
-    pdf.text(apellidoPaterno, 170, 200);
-    pdf.text(apellidoMaterno, 170, 200);
-    pdf.text(calle, 170, 400);
-    pdf.text(numeroExterior, 170, 400);
-    pdf.text(numeroInterior, 170, 400);
-    pdf.text(colonia, 170, 400);
-    pdf.text(delegacionMunicipio, 170, 400);
-    pdf.text(codigoPostal, 170, 400);
-    pdf.text(telefonoFijo, 170, 400);
-    pdf.text(telefonoMovil, 170, 400);
-    pdf.text(correoElectronico, 170, 400);
-    pdf.text(claveElector, 170, 400);
-    pdf.text(municipio, 170, 400);
-    pdf.text(distritoElectoral2, 170, 400);
-    pdf.text(seccion, 170, 400);
+    pdf.text(nombres, 45, 100);
+    pdf.text(apellidoPaterno, 58, 120);
+    pdf.text(apellidoMaterno, 58, 140);
+    pdf.text(calle, 58, 160);
+    pdf.text(numeroExterior, 58, 180);
+    pdf.text(numeroInterior, 58, 200);
+    pdf.text(colonia, 58, 220);
+    pdf.text(delegacionMunicipio, 58, 240);
+    pdf.text(codigoPostal, 58, 260);
+    pdf.text(telefonoFijo, 58, 280);
+    pdf.text(telefonoMovil, 58, 300);
+    pdf.text(correoElectronico, 58, 320);
+    pdf.text(claveElector, 58, 340);
+    pdf.text(municipio, 58, 360);
+    pdf.text(distritoElectoral2, 58, 380);
+    pdf.text(seccion, 58, 400);
+    
 
     pdf.setFillColor(0,0,0);
 
