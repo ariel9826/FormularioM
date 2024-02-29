@@ -80,10 +80,10 @@ async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, num
     pdf.text(calle, 22, 220);
     pdf.text(numeroExterior, 270, 220);
     pdf.text(numeroInterior, 460, 220);
-    pdf.text(colonia, 58, 220);
-    pdf.text(delegacionMunicipio, 58, 240);
-    pdf.text(codigoPostal, 58, 260);
-    pdf.text(telefonoFijo, 58, 280);
+    pdf.text(colonia, 22, 255);
+    pdf.text(delegacionMunicipio, 255, 255);
+    pdf.text(codigoPostal, 465, 255);
+    pdf.text(telefonoFijo, 22, 280);
     pdf.text(telefonoMovil, 58, 300);
     pdf.text(correoElectronico, 58, 320);
     pdf.text(claveElector, 58, 340);
