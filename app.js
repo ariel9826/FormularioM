@@ -44,6 +44,8 @@ window.addEventListener('load', async () => {
         e.preventDefault();
 
         // Se obtienen los valores de los campos del formulario.
+        let estado = document.getElementById('estado').value;
+        let distritoElectoral1 = document.getElementById('distritoElectoral1').value;
         let nombres = document.getElementById('nombres').value;
         let apellidoPaterno = document.getElementById('apellidoPaterno').value;
         let apellidoMaterno = document.getElementById('apellidoMaterno').value;
@@ -82,8 +84,10 @@ window.addEventListener('load', async () => {
         // Se añade la firma al PDF.
         pdf.addImage(signatureImage, 'PNG', 140, 480, 300, 60);
 
-       // Se añaden los datos del formulario al PDF.
+// Se añaden los datos del formulario al PDF.
 pdf.setFontSize(10);
+pdf.text(estado, 85, 148); // Ajusta la posición según sea necesario
+pdf.text(distritoElectoral1, 430, 148); // Ajusta la posición según sea necesario
 pdf.text(nombres, 22, 190);
 pdf.text(apellidoPaterno, 225, 190);
 pdf.text(apellidoMaterno, 390, 190);
@@ -93,6 +97,10 @@ pdf.text(numeroInterior, 460, 220);
 pdf.text(colonia, 22, 255);
 pdf.text(delegacionMunicipio, 255, 255);
 pdf.text(codigoPostal, 465, 255);
+pdf.text(correoElectronico, 22, 320);
+pdf.text(municipio, 65, 400);
+pdf.text(distritoElectoral2, 420, 400);
+
 
 // Separación de caracteres para el teléfono fijo
 let telefonoFijoSeparated = telefonoFijo.split('').join('      '); // Agrega más espacio entre los caracteres
@@ -106,7 +114,7 @@ pdf.text(telefonoMovilSeparated, 340, 285);
 claveElector = claveElector.toUpperCase();
 
 // Separación de caracteres para la clave de elector
-let claveElectorSeparated = claveElector.split('').join('      '); // Agrega más espacio entre los caracteres
+let claveElectorSeparated = claveElector.split('').join('   '); // Agrega más espacio entre los caracteres
 pdf.text(claveElectorSeparated, 310, 318);
 
 
