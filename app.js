@@ -40,7 +40,7 @@ window.addEventListener('load', async () => {
 
     // Se obtiene el formulario y se añade un evento para cuando se envíe.
     const form = document.querySelector('#form');
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Se obtienen los valores de los campos del formulario.
@@ -61,50 +61,75 @@ window.addEventListener('load', async () => {
         let distritoElectoral2 = document.getElementById('distritoElectoral2').value;
         let seccion = document.getElementById('seccion').value;
 
-        // Se llama a la función para generar el PDF con los datos obtenidos del formulario.
-        generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion);
+        // Se carga la imagen de fondo del PDF.
+        const image = await loadImage("formulario.jpg");
+        // Se obtiene la firma capturada como una imagen.
+        const signatureImage = signaturePad.toDataURL();
+
+        // Se obtienen las imágenes cargadas.
+        const imagen1File = document.getElementById('imagen1').files[0];
+        const imagen2File = document.getElementById('imagen2').files[0];
+
+        // Se convierten las imágenes en formato base64.
+        const imagen1DataURL = await fileToDataURL(imagen1File);
+        const imagen2DataURL = await fileToDataURL(imagen2File);
+
+        // Se crea un objeto jsPDF para generar el PDF.
+        const pdf = new jsPDF('p', 'pt', 'letter');
+
+        // Se añade la imagen de fondo al PDF.
+        pdf.addImage(image, 'PNG', 0, 0, 565, 792);
+        // Se añade la firma al PDF.
+        pdf.addImage(signatureImage, 'PNG', 140, 480, 300, 60);
+
+        // Se añaden los datos del formulario al PDF.
+        pdf.setFontSize(10);
+        pdf.text(nombres, 22, 190);
+        pdf.text(apellidoPaterno, 225, 190);
+        pdf.text(apellidoMaterno, 390, 190);
+        pdf.text(calle, 22, 220);
+        pdf.text(numeroExterior, 270, 220);
+        pdf.text(numeroInterior, 460, 220);
+        pdf.text(colonia, 22, 255);
+        pdf.text(delegacionMunicipio, 255, 255);
+        pdf.text(codigoPostal, 465, 255);
+        pdf.text(telefonoFijo, 68, 285);
+        pdf.text(telefonoMovil, 345, 285);
+        pdf.text(correoElectronico, 22, 320);
+        pdf.text(claveElector, 310, 318);
+        pdf.text(municipio, 65, 400);
+        pdf.text(distritoElectoral2, 420, 400);
+        pdf.text(seccion, 64, 425);
+
+        // Se añaden las imágenes al PDF.
+        if (imagen1DataURL) {
+            pdf.addImage(imagen1DataURL, 'JPEG', 26, 580, 224, 155);
+        }
+        if (imagen2DataURL) {
+            pdf.addImage(imagen2DataURL, 'JPEG', 310, 580, 224, 155);
+        }
+
+        pdf.setFillColor(0,0,0);
+
+        // Se guarda el PDF.
+        pdf.save("example.pdf");
     });
 
 });
 
-
-// Esta función genera un PDF con los datos del formulario y lo guarda.
-async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion) {
-    // Se carga la imagen de fondo del PDF.
-    const image = await loadImage("formulario.jpg");
-    // Se obtiene la firma capturada como una imagen.
-    const signatureImage = signaturePad.toDataURL();
-
-    // Se crea un objeto jsPDF para generar el PDF.
-    const pdf = new jsPDF('p', 'pt', 'letter');
-
-    // Se añade la imagen de fondo al PDF.
-    pdf.addImage(image, 'PNG', 0, 0, 565, 792);
-    // Se añade la firma al PDF.
-    pdf.addImage(signatureImage, 'PNG', 140, 480, 300, 60);
-
-    // Se añaden los datos del formulario al PDF.
-    pdf.setFontSize(10);
-    pdf.text(nombres, 22, 190);
-    pdf.text(apellidoPaterno, 225, 190);
-    pdf.text(apellidoMaterno, 390, 190);
-    pdf.text(calle, 22, 220);
-    pdf.text(numeroExterior, 270, 220);
-    pdf.text(numeroInterior, 460, 220);
-    pdf.text(colonia, 22, 255);
-    pdf.text(delegacionMunicipio, 255, 255);
-    pdf.text(codigoPostal, 465, 255);
-    pdf.text(telefonoFijo, 68, 285);
-    pdf.text(telefonoMovil, 345, 285);
-    pdf.text(correoElectronico, 22, 320);
-    pdf.text(claveElector, 310, 318);
-    pdf.text(municipio, 65, 400);
-    pdf.text(distritoElectoral2, 420, 400);
-    pdf.text(seccion, 64, 425);
-    
-
-    pdf.setFillColor(0,0,0);
-
-    // Se guarda el PDF.
-    pdf.save("example.pdf");
+// Función para convertir un archivo a formato base64.
+function fileToDataURL(file) {
+    return new Promise((resolve, reject) => {
+        if (!file) {
+            resolve(null);
+        }
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            resolve(e.target.result);
+        };
+        reader.onerror = (e) => {
+            reject(e);
+        };
+        reader.readAsDataURL(file);
+    });
 }

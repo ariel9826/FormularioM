@@ -119,6 +119,20 @@
                         <button type="button" class="btn btn-secondary" id="reiniciarFirma">Reiniciar Firma</button>
                     </div>
 
+                    <!-- Agregar campos para cargar las imágenes -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="imagen1" class="form-label">Imagen 1</label>
+                            <input type="file" class="form-control" id="imagen1" accept="image/*">
+                            <img id="imagen1Preview" src="#" alt="Imagen 1" style="max-width: 100%; height: auto; display: none;">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="imagen2" class="form-label">Imagen 2</label>
+                            <input type="file" class="form-control" id="imagen2" accept="image/*">
+                            <img id="imagen2Preview" src="#" alt="Imagen 2" style="max-width: 100%; height: auto; display: none;">
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary mb-4">Generar PDF</button>
                 </form>
             </div>
