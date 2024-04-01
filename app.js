@@ -28,6 +28,16 @@ window.addEventListener('load', async () => {
     // Se crea un SignaturePad con el canvas.
     signaturePad = new SignaturePad(canvas, {});
 
+    // Agregar la funcionalidad para el botón "Borrar Firma"
+    document.getElementById('borrarFirma').addEventListener('click', () => {
+        signaturePad.clear();
+    });
+
+    // Agregar la funcionalidad para el botón "Reiniciar Firma"
+    document.getElementById('reiniciarFirma').addEventListener('click', () => {
+        signaturePad.clear();
+    });
+
     // Se obtiene el formulario y se añade un evento para cuando se envíe.
     const form = document.querySelector('#form');
     form.addEventListener('submit', (e) => {
@@ -53,9 +63,10 @@ window.addEventListener('load', async () => {
 
         // Se llama a la función para generar el PDF con los datos obtenidos del formulario.
         generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion);
-    })
+    });
 
 });
+
 
 // Esta función genera un PDF con los datos del formulario y lo guarda.
 async function generatePDF(nombres, apellidoPaterno, apellidoMaterno, calle, numeroExterior, numeroInterior, colonia, delegacionMunicipio, codigoPostal, telefonoFijo, telefonoMovil, correoElectronico, claveElector, municipio, distritoElectoral2, seccion) {
