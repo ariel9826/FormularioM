@@ -82,24 +82,34 @@ window.addEventListener('load', async () => {
         // Se añade la firma al PDF.
         pdf.addImage(signatureImage, 'PNG', 140, 480, 300, 60);
 
-        // Se añaden los datos del formulario al PDF.
-        pdf.setFontSize(10);
-        pdf.text(nombres, 22, 190);
-        pdf.text(apellidoPaterno, 225, 190);
-        pdf.text(apellidoMaterno, 390, 190);
-        pdf.text(calle, 22, 220);
-        pdf.text(numeroExterior, 270, 220);
-        pdf.text(numeroInterior, 460, 220);
-        pdf.text(colonia, 22, 255);
-        pdf.text(delegacionMunicipio, 255, 255);
-        pdf.text(codigoPostal, 465, 255);
-        pdf.text(telefonoFijo, 68, 285);
-        pdf.text(telefonoMovil, 345, 285);
-        pdf.text(correoElectronico, 22, 320);
-        pdf.text(claveElector, 310, 318);
-        pdf.text(municipio, 65, 400);
-        pdf.text(distritoElectoral2, 420, 400);
-        pdf.text(seccion, 64, 425);
+       // Se añaden los datos del formulario al PDF.
+pdf.setFontSize(10);
+pdf.text(nombres, 22, 190);
+pdf.text(apellidoPaterno, 225, 190);
+pdf.text(apellidoMaterno, 390, 190);
+pdf.text(calle, 22, 220);
+pdf.text(numeroExterior, 270, 220);
+pdf.text(numeroInterior, 460, 220);
+pdf.text(colonia, 22, 255);
+pdf.text(delegacionMunicipio, 255, 255);
+pdf.text(codigoPostal, 465, 255);
+
+// Separación de caracteres para el teléfono fijo
+let telefonoFijoSeparated = telefonoFijo.split('').join('      '); // Agrega más espacio entre los caracteres
+pdf.text(telefonoFijoSeparated, 65, 285);
+
+// Separación de caracteres para el teléfono móvil
+let telefonoMovilSeparated = telefonoMovil.split('').join('      '); // Agrega más espacio entre los caracteres
+pdf.text(telefonoMovilSeparated, 340, 285);
+
+// Separación de caracteres para la clave de elector
+let claveElectorSeparated = claveElector.split('').join('   '); // Agrega más espacio entre los caracteres
+pdf.text(claveElectorSeparated, 307, 318);
+
+// Separación de caracteres para la sección
+let seccionSeparated = seccion.split('').join('      '); // Agrega más espacio entre los caracteres
+pdf.text(seccionSeparated, 64, 425);
+
 
         // Se añaden las imágenes al PDF.
         if (imagen1DataURL) {
