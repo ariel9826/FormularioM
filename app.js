@@ -102,9 +102,13 @@ pdf.text(telefonoFijoSeparated, 65, 285);
 let telefonoMovilSeparated = telefonoMovil.split('').join('      '); // Agrega más espacio entre los caracteres
 pdf.text(telefonoMovilSeparated, 340, 285);
 
+// Convertir la clave de elector a mayúsculas
+claveElector = claveElector.toUpperCase();
+
 // Separación de caracteres para la clave de elector
-let claveElectorSeparated = claveElector.split('').join('   '); // Agrega más espacio entre los caracteres
-pdf.text(claveElectorSeparated, 307, 318);
+let claveElectorSeparated = claveElector.split('').join('      '); // Agrega más espacio entre los caracteres
+pdf.text(claveElectorSeparated, 310, 318);
+
 
 // Separación de caracteres para la sección
 let seccionSeparated = seccion.split('').join('      '); // Agrega más espacio entre los caracteres
