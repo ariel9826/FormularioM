@@ -133,8 +133,10 @@ pdf.text(seccionSeparated, 64, 425);
 
         pdf.setFillColor(0,0,0);
 
-        // Se guarda el PDF.
-        pdf.save("example.pdf");
+// Se guarda el PDF con el nombre ingresado en la casilla "Seccion"
+const nombrePDF = seccion.trim() || "example"; // Si no se ingresa ningún nombre, se utiliza "example" como nombre predeterminado
+pdf.save(`${nombrePDF}.pdf`);
+
     });
 
 });
